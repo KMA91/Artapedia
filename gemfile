@@ -40,6 +40,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'aws-sdk', '< 2.0'
+  gem 'paperclip', '~> 4.1'
+  gem 'figaro'
 end
 
 group :development do

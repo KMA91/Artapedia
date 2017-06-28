@@ -9,9 +9,11 @@ Rails.application.routes.draw do
 
   get 'comments/destroy'
 
-  get 'uploads/create'
-
   get 'uploads/show'
+
+  get 'upload' => 'uploads#index'
+
+  post 'upload' => 'uploads#create'
 
   get 'uploads/destroy'
 
