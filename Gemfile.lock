@@ -39,14 +39,22 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (6.0.4)
+<<<<<<< HEAD
     aws-sdk (1.67.0)
       aws-sdk-v1 (= 1.67.0)
     aws-sdk-v1 (1.67.0)
       json (~> 1.4)
       nokogiri (~> 1)
+=======
+    autoprefixer-rails (7.1.1.2)
+      execjs
+>>>>>>> eddb3b39356ee11dac8d460d065d9bf045b9de0f
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.14.2)
@@ -200,6 +208,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (< 2.0)
   bcrypt (~> 3.1.7)
+  bootstrap-sass
   byebug
   capybara
   coffee-rails (~> 4.1.0)
