@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'users#index'
+
   get 'likes/create'
 
   get 'likes/destroy'
@@ -15,7 +17,11 @@ Rails.application.routes.draw do
 
   get 'uploads/update'
 
-  get 'users/index'
+  get 'users/index' => 'users#index'
+
+  post 'register' => 'users#register'
+
+  post 'login' => 'sessions#create'
 
   get 'users/create'
 
