@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'users#index'
 
+  resources :videos, only: [:index, :new, :create]
+
   get 'likes/create'
 
   get 'likes/destroy'
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
   post 'register' => 'users#register'
 
   post 'login' => 'sessions#create'
+
+  get 'index' => 'videos#index'
 
   get 'users/create'
 
