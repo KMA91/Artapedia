@@ -1,5 +1,5 @@
 Yt.configure do |config|
-  config.client_id = '80357940277-1dcp5idca7081pv8hqt0i2cd3dkm86a4.apps.googleusercontent.com'
-  config.client_secret = 'dY39rMOveNNB8eTMn-688UPk'
-  config.api_key = 'AIzaSyBM1pbX-6esrUcsqY22TflQn1C1qkWSQeQ'
+  config.client_id = '80357940277-c1c7jdnq5vsffqj13i945t2b6qao3pia.apps.googleusercontent.com'
+  config.client_secret = '3fm5N7earja-5RaiwYRdm-E1'
+  config.api_key = 'AIzaSyCx4iFSpAmpJR5s2FwvAWh1eHf56QVZTqQ'
 end
