@@ -5,6 +5,8 @@ gem 'omniauth-google-oauth2'
 gem 'yt'
 gem 'bootstrap-sass'
 gem 'hirb'
+
+
 gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
@@ -40,10 +42,12 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'aws-sdk', '< 2.0'
+  gem 'paperclip', '~> 4.1'
+  gem 'figaro'
 end
 
 group :development do

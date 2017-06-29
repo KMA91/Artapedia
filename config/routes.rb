@@ -11,9 +11,11 @@ Rails.application.routes.draw do
 
   get 'comments/destroy'
 
-  get 'uploads/create'
-
   get 'uploads/show'
+
+  get 'upload' => 'uploads#index'
+
+  post 'upload' => 'uploads#create'
 
   get 'uploads/destroy'
 
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
   get 'sessions/login'
 
   get 'sessions/logout'
+
+  resources :videos, only: [:index, :new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
