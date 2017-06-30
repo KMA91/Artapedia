@@ -8,6 +8,21 @@
 </head>
 <body>
 
+<% if curr_user %>
+<div class="navbar navbar-inverse" id="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Artapedia', videos_path, class: 'navbar-brand' %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Add Video', new_video_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/destroy" data-method="DELETE">Logout</a></li>
+    </ul>
+  </div>
+</div>
+<% end %>
 
 <% if flash[:errors] %>
     <% flash[:errors].each do |e|%>
@@ -15,7 +30,8 @@
         <strong><%= e %></strong>
       </div>
     <% end %>
-  <% end %>
+<% end %>
+
 <%= yield %>
 
 </body>
