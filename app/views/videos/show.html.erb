@@ -2,7 +2,7 @@
 <br>
 <%= @video.title %>
 <br>
-<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/<%= @video.uid %>?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div> 
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/<%= @video.uid %>?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 <br>
 <form action = "/comments" method = "post">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -22,15 +22,15 @@
                         </div>
                         <h6 class="text-muted time"><%= comment.created_at %></h6>
                     </div>
-                </div> 
-                <div class="post-description"> 
+                </div>
+                <div class="post-description">
                     <p><%= comment.content %></p>
                     <div class="stats">
-                        <a href="#" class="btn btn-default stat-item">
+                        <a href="/likes/<%= @video.id %>" data-method="post" class="btn btn-default stat-item">
                             <i class="fa fa-thumbs-up icon"></i>
                             <!-- put likes.count -->
                         </a>
-                        <a href="#" class="btn btn-default stat-item">
+                        <a href="/unlikes/<%= @video.id %>" data-method="post" class="btn btn-default stat-item">
                             <i class="fa fa-thumbs-down icon"></i>
                             <!-- put dislikes.count -->
                         </a>
@@ -49,7 +49,7 @@
                     	<div class="testimonial-writer-name"><%= comment.user.username %></div>
                     </div>
                 </div>
-            </div>   
+            </div>
 		</div> -->
 
 	<%end%>

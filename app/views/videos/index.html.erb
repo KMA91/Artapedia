@@ -46,8 +46,9 @@
                   <% if video.published_at %>
                     <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
                   <% end %>
-                  <p>
+                  <p><%= video.likes.count %>
                     <span class="glyphicon glyphicon glyphicon-thumbs-up"></span>
+                    <%= video.unlikes.count %>
                     <span class="glyphicon glyphicon glyphicon-thumbs-down"></span>
                   </p>
                 </div>
