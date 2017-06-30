@@ -9,6 +9,7 @@ class Video < ActiveRecord::Base
     video = Yt::Video.new url: self.link
     self.uid = video.id
     self.title = video.title
+    self.published_at = video.published_at
   end
-
+  
 end
