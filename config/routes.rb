@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  resources :videos, only: [:index, :new, :create]
 
   post 'comments' => 'comments#create'
 
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   post 'register' => 'users#register'
 
   post 'login' => 'sessions#create'
+
 
   get 'index' => 'videos#index'
 
