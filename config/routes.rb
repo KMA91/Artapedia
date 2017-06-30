@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  
+  root 'users#index'
+
+  resources :videos, only: [:index, :new, :create]
+
+  post 'comments' => 'comments#create'
+
   get 'users/index' => 'users#index'
 
   post 'register' => 'users#register'
 
   post 'login' => 'sessions#create'
 
-  resources :videos, only: [:index, :new, :create]
+  get 'index' => 'videos#index'
+
+  delete 'destroy' => 'sessions#logout'
+
+  resources :videos, only: [:index, :new, :create, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def logout
     reset_session
-    redirect_to :back
+    redirect_to :root
   end
 
   def create
@@ -12,13 +12,13 @@ class SessionsController < ApplicationController
     if @user
       if @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        redirect_to '/videos'
+        redirect_to '/index'
       else
         flash[:errors] = ["Password is incorrect"]
         redirect_to :back
       end
     else
-      flash[:errors] = ["Email not found. Plese try again or register"]
+      flash[:errors] = ["Username not found. Plese try again or register"]
       redirect_to :back
     end
   end
