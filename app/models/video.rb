@@ -12,4 +12,5 @@ class Video < ActiveRecord::Base
     self.published_at = video.published_at
   end
 
+
 end

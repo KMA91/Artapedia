@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if flash[:errors] %>
+
+
+<% if flash[:errors] %>
     <% flash[:errors].each do |e|%>
       <div class= "alert alert-danger" style="color:red;">
         <strong><%= e %></strong>
