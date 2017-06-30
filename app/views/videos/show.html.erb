@@ -1,3 +1,11 @@
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/<%= @video.uid %>?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+<br>
+<% unless Video.find(<%= @video.id %>).users %>
+<p><%= @video.likes.count %>
+	<a href="/likes/<%= @video.id %>" data-method="post" class="btn btn-default stat-item"><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></a>
+	<%= @video.unlikes.count %>
+	<a href="/unlikes/<%= @video.id %>" data-method="post" class="btn btn-default stat-item"><span class="glyphicon glyphicon glyphicon-thumbs-down"></span></a>
+</p>
 
 <div class-"video">
   <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/<%= @video.uid %>?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
@@ -33,11 +41,11 @@
                 <div class="post-description">
                     <p><%= comment.content %></p>
                     <div class="stats">
-                        <a href="/likes/<%= @video.id %>" data-method="post" class="btn btn-default stat-item">
+
                             <i class="fa fa-thumbs-up icon"></i>
                             <!-- put likes.count -->
                         </a>
-                        <a href="/unlikes/<%= @video.id %>" data-method="post" class="btn btn-default stat-item">
+
                             <i class="fa fa-thumbs-down icon"></i>
                             <!-- put dislikes.count -->
                         </a>

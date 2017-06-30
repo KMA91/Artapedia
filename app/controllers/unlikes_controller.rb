@@ -1,5 +1,7 @@
 class UnlikesController < ApplicationController
 
+  before_action :require_login
+
   def create
     @unlike = Unlike.new(user_id: session[:user_id], video_id: params[:id])
     if @unlike.save
