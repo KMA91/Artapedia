@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+
+  before_action :require_login
   # renders homepage with videos
   def index
     @videos = Video.order('created_at DESC')

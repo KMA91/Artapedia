@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   delete 'destroy' => 'sessions#logout'
 
+  post 'likes/:id' => 'likes#create'
+
+  post 'unlikes/:id' => 'unlikes#create'
+
   resources :videos, only: [:index, :new, :create, :show]
 
 end

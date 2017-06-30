@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630035329) do
+ActiveRecord::Schema.define(version: 20170630073522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.integer  "comment_id"
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170630035329) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
   create_table "likes", force: :cascade do |t|
     t.integer  "video_id"
     t.integer  "user_id"
@@ -29,16 +31,15 @@ ActiveRecord::Schema.define(version: 20170630035329) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "uploads", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
+  create_table "unlikes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "unlikes", ["user_id"], name: "index_unlikes_on_user_id", using: :btree
+  add_index "unlikes", ["video_id"], name: "index_unlikes_on_video_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170630035329) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
   create_table "videos", force: :cascade do |t|
     t.string   "link"
     t.string   "title"
@@ -55,8 +57,18 @@ ActiveRecord::Schema.define(version: 20170630035329) do
     t.integer  "likes"
     t.integer  "dislikes"
     t.string   "uid"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "user_id"
   end
+
   add_index "videos", ["uid"], name: "index_videos_on_uid", using: :btree
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
+
+  add_foreign_key "unlikes", "users"
+  add_foreign_key "unlikes", "videos"
 end

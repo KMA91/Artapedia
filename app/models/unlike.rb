@@ -1,4 +1,4 @@
-class Like < ActiveRecord::Base
+class Unlike < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
 end

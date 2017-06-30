@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
+
   private 
     def curr_user
       if session[:user_id]
@@ -12,4 +13,9 @@ class ApplicationController < ActionController::Base
     end
 
     helper_method :curr_user
+
+  def require_login
+    redirect_to '' unless session[:user_id]
+  end
+
 end
