@@ -9,12 +9,18 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
+    puts @video
+    puts "**********************************"
     if @video.save
       flash[:success] = 'Video added!'
       redirect_to '/videos'
     else
       render :new
     end
+  end
+  def show
+    @video = Video.find(params[:id])
+    @comments = Comment.all
   end
 
   private
