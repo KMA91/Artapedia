@@ -8,24 +8,17 @@
     <div class="background-display">
       <%= video_tag "Turntable.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video" %>
     </div>
-
-
     <div class="content">
       <h1>WELCOME TO ARTAPEDIA</h1>
       <p>The place to share and connect through music.</p>
       <!-- <p>Play Share ListeN</p> -->
       <div class="button">
-
         <!-- Button trigger modal register -->
         <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#register">Sign Up</button>
-
         <!-- Button trigger modal login-->
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">Login</button>
-
       </div>
-
   </div>
-
   <!-- Modal - Register -->
       <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -35,10 +28,8 @@
               <h4 class="modal-title" id="myModalLabel">Registration</h4>
             </div>
             <div class="modal-body">
-
               <form class="form-horizontal" action="/register" method="post">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Name</label>
                   <div class="col-sm-10">
@@ -82,7 +73,6 @@
           </div>
         </div>
       </div>
-
       <!-- Modal - Login -->
       <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <input type="hidden" name="authenticity_token" value="<% form_authenticity_token %>">
@@ -95,10 +85,6 @@
             <div class="modal-body">
               <form class="form-horizontal" action="/login" method="post">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
                 <div class="form-group">
                   <label for="username" class="col-sm-2 control-label">Username</label>
                   <div class="col-sm-10">
@@ -124,9 +110,6 @@
           </div>
         </div>
       </div>
-
       <!--Login - Modal  -->
-
-
   </body>
 </html>

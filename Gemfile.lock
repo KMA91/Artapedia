@@ -41,6 +41,8 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (7.1.1.2)
       execjs
+    av (0.9.0)
+      cocaine (~> 0.5.3)
     aws-sdk (1.67.0)
       aws-sdk-v1 (= 1.67.0)
     aws-sdk-v1 (1.67.0)
@@ -137,6 +139,12 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    paperclip-av-transcoder (0.6.4)
+      av (~> 0.9.0)
+      paperclip (>= 2.5.2)
+    paperclip-ffmpeg (1.2.0)
+      paperclip (>= 2.5.2)
+      rails
     pg (0.21.0)
     public_suffix (2.0.5)
     rack (1.6.8)
@@ -242,6 +250,8 @@ DEPENDENCIES
   jquery-rails
   omniauth-google-oauth2
   paperclip (~> 4.1)
+  paperclip-av-transcoder
+  paperclip-ffmpeg (~> 1.2.0)
   pg (~> 0.15)
   rails (= 4.2.7)
   rspec-rails
