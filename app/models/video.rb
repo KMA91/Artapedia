@@ -31,7 +31,7 @@ class Video < ActiveRecord::Base
 
   def check
     if self.link
-      before_save :yt_api_call
+      yt_api_call
     end
   end
 

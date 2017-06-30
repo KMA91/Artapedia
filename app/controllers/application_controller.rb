@@ -4,11 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  def curr_user
-  	if session[:user_id]
-  		User.find(session[:user_id])
-  	end
-  end
+
+  private 
+    def curr_user
+      if session[:user_id]
+        User.find(session[:user_id])
+      end
+    end
+
+    helper_method :curr_user
 
   def require_login
     redirect_to '' unless session[:user_id]
