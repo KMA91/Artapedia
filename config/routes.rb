@@ -1,35 +1,10 @@
 Rails.application.routes.draw do
-  root 'users#index'
-
-  get 'likes/create'
-
-  get 'likes/destroy'
-
-  get 'comments/create'
-
-  get 'comments/destroy'
-
-  get 'uploads/show'
-
-  get 'upload' => 'uploads#index'
-
-  post 'upload' => 'uploads#create'
-
-  get 'uploads/destroy'
-
-  get 'uploads/update'
-
+  
   get 'users/index' => 'users#index'
 
   post 'register' => 'users#register'
 
   post 'login' => 'sessions#create'
-
-  get 'users/create'
-
-  get 'sessions/login'
-
-  get 'sessions/logout'
 
   resources :videos, only: [:index, :new, :create]
 

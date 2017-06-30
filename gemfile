@@ -45,6 +45,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'aws-sdk', '< 2.0'
   gem 'paperclip', '~> 4.1'
+  gem 'paperclip-av-transcoder'
+  gem 'paperclip-ffmpeg', '~> 1.2.0'
   gem 'figaro'
 end
 
