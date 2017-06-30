@@ -11,6 +11,45 @@
 </form>
 
 <% @comments.all.each do |comment| %>
-	<p><%= comment.user.username %> says:<%= comment.content %></p>
+
+		<div class="col-sm-8">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b><%= comment.user.username %></b></a>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time"><%= comment.created_at %></h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p><%= comment.content %></p>
+                    <div class="stats">
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-up icon"></i>
+                            <!-- put likes.count -->
+                        </a>
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-down icon"></i>
+                            <!-- put dislikes.count -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<!-- <div class="col-sm-6">
+            <div id="tb-testimonial" class="testimonial testimonial-primary">
+                <div class="testimonial-section">
+                    <%= comment.content %>
+            	</div>
+                <div class="testimonial-desc">
+                    <div class="testimonial-writer">
+                    	<div class="testimonial-writer-name"><%= comment.user.username %></div>
+                    </div>
+                </div>
+            </div>   
+		</div> -->
 
 	<%end%>

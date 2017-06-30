@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  resources :videos, only: [:index, :new, :create]
-
   post 'comments' => 'comments#create'
 
   get 'users/index' => 'users#index'
