@@ -11,5 +11,6 @@ class Video < ActiveRecord::Base
     self.title = video.title
     self.published_at = video.published_at
   end
-  
+
+
 end
