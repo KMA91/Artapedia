@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
 <% if flash[:errors] %>
     <% flash[:errors].each do |e|%>
       <div class= "alert alert-danger" style="color:red;">
@@ -15,7 +16,6 @@
       </div>
     <% end %>
   <% end %>
-
 <%= yield %>
 
 </body>

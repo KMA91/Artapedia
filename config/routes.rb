@@ -1,31 +1,19 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  get 'likes/create'
-
-  get 'likes/destroy'
-
-  get 'comments/create'
-
-  get 'comments/destroy'
+  resources :videos, only: [:index, :new, :create]
 
   post 'comments' => 'comments#create'
 
-  get 'uploads/show'
+  get 'users/index' => 'users#index'
 
-  get 'upload' => 'uploads#index'
+  post 'register' => 'users#register'
 
-  post 'upload' => 'uploads#create'
+  post 'login' => 'sessions#create'
 
-  get 'uploads/destroy'
+  get 'index' => 'videos#index'
 
-  get 'uploads/update'
-
-  get 'users/create'
-
-  get 'sessions/login'
-
-  get 'sessions/logout'
+  delete 'destroy' => 'sessions#logout'
 
   resources :videos, only: [:index, :new, :create, :show]
 
