@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   get 'index' => 'videos#index'
 
+  delete 'destroy' => 'sessions#logout'
+
   get 'users/create'
 
   get 'sessions/login'

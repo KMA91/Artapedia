@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def logout
     reset_session
-    redirect_to :back
+    redirect_to '/'
   end
 
   def create
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         redirect_to :back
       end
     else
-      flash[:errors] = ["Email not found. Plese try again or register"]
+      flash[:errors] = ["Username not found. Plese try again or register"]
       redirect_to :back
     end
   end

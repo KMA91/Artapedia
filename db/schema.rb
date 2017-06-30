@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# <<<<<<< HEAD
-# ActiveRecord::Schema.define(version: 20170629011815) do
-# =======
-ActiveRecord::Schema.define(version: 20170629190615) do
-# >>>>>>> 8496bcd6a924ad36fc33f976761bae6124ded640
+ActiveRecord::Schema.define(version: 20170629011815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,8 +68,4 @@ ActiveRecord::Schema.define(version: 20170629190615) do
 
   add_index "videos", ["uid"], name: "index_videos_on_uid", using: :btree
 
-<<<<<<< HEAD
-  add_foreign_key "uploads", "users"
-=======
->>>>>>> 8496bcd6a924ad36fc33f976761bae6124ded640
 end
