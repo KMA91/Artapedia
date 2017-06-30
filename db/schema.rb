@@ -19,16 +19,14 @@ ActiveRecord::Schema.define(version: 20170630035329) do
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.integer  "comment_id"
-    t.string   "comment_type"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["comment_type", "comment_id"], name: "index_comments_on_comment_type_and_comment_id", using: :btree
-
   create_table "likes", force: :cascade do |t|
-    t.integer  "like_id"
-    t.string   "like_type"
+    t.integer  "video_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

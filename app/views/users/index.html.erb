@@ -1,44 +1,115 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1>Check it!</h1>
-    <p>Click the button below to share your video from YouTube.</p>
-    <p>
-      <%= link_to 'Add video now!', new_video_path, class: 'btn btn-primary btn-lg' %>
-    </p>
-  </div>
-</div>
-
-<% if @videos.any? %>
-  <div class="container">
-    <h1>Latest videos</h1>
-    <div id="player-wrapper"></div>
-    <% @videos.in_groups_of(3) do |group| %>
-      <div class="row">
-        <% group.each do |video| %>
-          <% if video %>
-            <div class="col-md-4">
-              <div class="yt_video thumbnail">
-                <% if video.file_content_type %>
-                <div style="position:relative;height:0;padding-bottom:56.25%"><%= video_tag video.file.url(:medium), controls: true, style: "max-width: 100%;" %></div>
-                <div class="caption">
-                <% else %>
-                <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/<%= video.uid %>?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
-                <div class="caption">
-                <% end %>
-                  <h1><%= video.title %></h1>
-                  <% if video.published_at %>
-                    <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
-                  <% end %>
-                  <p>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Artapedia</title>
+  </head>
+  <body>
+    <div class="background-display">
+      <%= video_tag "Turntable.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video" %>
+    </div>
+    <div class="content">
+      <h1>WELCOME TO ARTAPEDIA</h1>
+      <p>The place to share and connect through music.</p>
+      <!-- <p>Play Share ListeN</p> -->
+      <div class="button">
+        <!-- Button trigger modal register -->
+        <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#register">Sign Up</button>
+        <!-- Button trigger modal login-->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">Login</button>
       </div>
-    <% end %>
   </div>
-<% end %>
+  <!-- Modal - Register -->
+      <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Registration</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" action="/register" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <div class="form-group">
+                  <label for="name" class="col-sm-2 control-label">Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="user[name]" placeholder="name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="username" class="col-sm-2 control-label">Username</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="user[username]" placeholder="username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" name="user[email]" placeholder="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" name="user[password]" placeholder="password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password_confirmation" class="col-sm-2 control-label">Confirm Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" name="user[password_confirmation]" placeholder="Retype your password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal - Login -->
+      <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <input type="hidden" name="authenticity_token" value="<% form_authenticity_token %>">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" action="/login" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <div class="form-group">
+                  <label for="username" class="col-sm-2 control-label">Username</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="user[username]" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" name="user[password]" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Login</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Login - Modal  -->
+  </body>
+</html>
