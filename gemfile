@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rails-observers'
 gem 'omniauth-google-oauth2'
 gem 'yt'
 gem 'bootstrap-sass'
