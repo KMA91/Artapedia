@@ -24,21 +24,25 @@
       </div>
 </div>
 <% if @videos.any? %>
-<div id="latest">
   <div class="container">
     <h1>Latest videos</h1>
-      <div id="player-wrapper"></div>
-        <% @videos.in_groups_of(3) do |group| %>
-          <div class="row">
-            <% group.each do |video| %>
-              <% if video %>
-                <div class="col-md-4">
-                  <div class="yt_video thumbnail">
-                  <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/<%= video.uid %>?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
-                  <div class="caption">
-                  <h5><a href="videos/<%= video.id %>"><%= video.title %></a></h5>
+    <div id="player-wrapper"></div>
+    <% @videos.in_groups_of(3) do |group| %>
+      <div class="row">
+        <% group.each do |video| %>
+          <% if video %>
+            <div class="col-md-4">
+              <div class="yt_video thumbnail">
+                <% if video.file_content_type %>
+                <div style="position:relative;height:0;padding-bottom:56.25%"><%= video_tag video.file.url(:medium), controls: true, style: "max-width: 100%;" %></div>
+                <div class="caption">
+                <% else %>
+                <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/<%= video.uid %>?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+                <div class="caption">
+                <% end %>
+                  <h1><%= video.title %></h1>
                   <% if video.published_at %>
-                    <p>Published at <%= video.published_at.strftime('%-d %B %Y') %></p>
+                    <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
                   <% end %>
                   <p>
                     <span class="glyphicon glyphicon glyphicon-thumbs-up"></span>
@@ -47,12 +51,9 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <% end %>
-  </div>
-  <% end %>
-</div>
+<% end %>
