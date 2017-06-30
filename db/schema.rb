@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20170630035329) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "uploads", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
