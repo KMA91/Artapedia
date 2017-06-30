@@ -1,9 +1,16 @@
 source 'https://rubygems.org'
 
+
+
 gem 'bootstrap-sass'
 gem 'hirb'
+
+
+
+
 gem 'yt', '~> 0.13.7'
 gem 'omniauth-google-oauth2'
+
 gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
@@ -44,6 +51,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'aws-sdk', '< 2.0'
   gem 'paperclip', '~> 4.1'
+  gem 'paperclip-av-transcoder'
+  gem 'paperclip-ffmpeg', '~> 1.2.0'
   gem 'figaro'
 end
 

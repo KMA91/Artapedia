@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   root 'users#index'
 
+
   post 'comments' => 'comments#create'
-
-  get 'upload' => 'uploads#index'
-
-  post 'upload' => 'uploads#create'
 
   get 'users/index' => 'users#index'
 
   post 'register' => 'users#register'
 
   post 'login' => 'sessions#create'
+
+
+  get 'index' => 'videos#index'
 
   delete 'destroy' => 'sessions#logout'
 
