@@ -6,3 +6,4 @@ Yt.configure do |config|
   config.api_key = 'AIzaSyCx4iFSpAmpJR5s2FwvAWh1eHf56QVZTqQ'
   config.log_level = :debug
 end
+
