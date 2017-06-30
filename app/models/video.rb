@@ -4,7 +4,8 @@ class Video < ActiveRecord::Base
   # uploads
   belongs_to :user
   has_many :comments, as: :comment
-  has_many :likes, as: :like
+  has_many :likes
+  has_many :unlikes
   has_attached_file :file, styles: {
       :medium => {
         :geometry => "640x480",
@@ -16,9 +17,10 @@ class Video < ActiveRecord::Base
   :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
 
-  validates :link, presence: true, format: YT_LINK_FORMAT
+  # validates :link, format: YT_LINK_FORMAT
   # before save use yt gem to call Youtube api to get video id, title and published date to be passed on to datebase
-  before_save :yt_api_call
+
+  before_save :check
 
   validates_attachment_content_type :file, content_type: /\Avideo\/.*\Z/
 
@@ -26,6 +28,12 @@ class Video < ActiveRecord::Base
   {:bucket => "ruby-artapedia", :access_key_id => "AKIAILNNEFILNJUDYSCQ", :secret_access_key => "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"}
   end
 
+
+  def check
+    if self.link
+      before_save :yt_api_call
+    end
+  end
 
   def yt_api_call
     video = Yt::Video.new url: self.link

@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
   		User.find(session[:user_id])
   	end
   end
+
+  def require_login
+    redirect_to '' unless session[:user_id]
+  end
+
 end
