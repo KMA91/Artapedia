@@ -4,6 +4,7 @@ class Video < ActiveRecord::Base
   # uploads
   belongs_to :user
   has_many :comments, as: :comment
+  has_many :users, through: :likes
   has_many :likes
   has_many :unlikes
   has_attached_file :file, styles: {
@@ -31,7 +32,7 @@ class Video < ActiveRecord::Base
 
   def check
     if self.link
-      before_save :yt_api_call
+      :yt_api_call
     end
   end
 
