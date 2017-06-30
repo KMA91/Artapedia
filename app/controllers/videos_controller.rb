@@ -7,7 +7,7 @@ class VideosController < ApplicationController
   def new
     @video = Video.new
   end
-  # creates video using Youtube api
+  # creates video using Youtube api callback
   def create
     @video = Video.new(video_params)
     puts @video
