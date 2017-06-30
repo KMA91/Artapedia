@@ -22,11 +22,11 @@
                   <div class="caption">
                   <h5><%= video.title %></h5>
                   <% if video.published_at %>
-                    <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+                    <p>Published at <%= video.published_at.strftime('%-d %B %Y') %></p>
                   <% end %>
                   <p>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> 
+                    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span>
                   </p>
                 </div>
               </div>
