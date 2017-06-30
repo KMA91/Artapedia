@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-
   post 'comments' => 'comments#create'
 
   get 'users/index' => 'users#index'
@@ -9,7 +8,6 @@ Rails.application.routes.draw do
   post 'register' => 'users#register'
 
   post 'login' => 'sessions#create'
-
 
   get 'index' => 'videos#index'
 
