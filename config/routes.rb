@@ -1,25 +1,11 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  get 'likes/create'
-
-  get 'likes/destroy'
-
-  get 'comments/create'
-
-  get 'comments/destroy'
-
   post 'comments' => 'comments#create'
-
-  get 'uploads/show'
 
   get 'upload' => 'uploads#index'
 
   post 'upload' => 'uploads#create'
-
-  get 'uploads/destroy'
-
-  get 'uploads/update'
 
   get 'users/index' => 'users#index'
 
@@ -27,11 +13,7 @@ Rails.application.routes.draw do
 
   post 'login' => 'sessions#create'
 
-  get 'users/create'
-
-  get 'sessions/login'
-
-  get 'sessions/logout'
+  delete 'destroy' => 'sessions#logout'
 
   resources :videos, only: [:index, :new, :create, :show]
 
